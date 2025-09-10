@@ -13,5 +13,3 @@ terraform.tfvars
 # Lambda build artifacts
 infra/lambda.zip
 
-# Node (if ever added)
-node_modules/
