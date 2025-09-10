@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kruthendar Reddy Katta - Resume</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        async function loadCount() {
+          const url = "https://ar5bdakat9.execute-api.us-east-1.amazonaws.com/count"; // <-- your API Gateway URL
+          try {
+            const res = await fetch(url, { method: "GET" });
+            const data = await res.json();
+            document.getElementById("visitor-count").textContent = data.count;
+          } catch (err) {
+            console.error("Counter error:", err);
+            document.getElementById("visitor-count").textContent = "—";
+          }
+        }
+        loadCount();
+      </script>
 </head>
 <body>
     <div class="container">
@@ -181,6 +195,7 @@
                     </div>
                 </div>
             </section>
+            <p>Visitors: <span id="visitor-count">loading...</span></p>
         </main>
     </div>
 </body>

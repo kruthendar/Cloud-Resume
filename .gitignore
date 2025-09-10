@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Terraform state & build artifacts
+*.tfstate
+*.tfstate.backup
+crash.log
+.terraform/
+terraform.tfvars
+# Keep the lock file – it's good to commit
+!.terraform.lock.hcl
+
+# Lambda build artifacts
+infra/lambda.zip
+
+# Node (if ever added)
+node_modules/
