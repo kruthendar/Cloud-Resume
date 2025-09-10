@@ -25,6 +25,10 @@ jobs:
       # 3. Sync files to S3
       - name: Sync frontend to S3
         run: |
-          aws s3 cp index.html s3://cloud-resume-kruthendar \
-          aws s3 cp styles.css s3://cloud-resume-kruthendar \
-          --delete
+          aws s3 sync . s3://cloud-resume-kruthendar \
+            --exclude "infra/*" \
+            --exclude ".github/*" \
+            --exclude ".git/*" \
+            --exclude ".gitignore" \
+            --exclude "trust.json" \
+            --delete
