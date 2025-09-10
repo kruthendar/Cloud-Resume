@@ -27,4 +27,7 @@ jobs:
         run: |
           aws s3 sync . s3://cloud-resume-kruthendar \
             --exclude "infra/*" \
+            --exclude ".github/*" \
+            --exclude ".git/*" \
+            --exclude ".gitignore" \
             --delete
