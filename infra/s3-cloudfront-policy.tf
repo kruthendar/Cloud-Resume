@@ -26,7 +26,7 @@ data "aws_iam_policy_document" "cf_read" {
     condition {
       test     = "StringEquals"
       variable = "AWS:SourceArn"
-      values   = [
+      values = [
         "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${aws_cloudfront_distribution.cdn.id}"
       ]
     }
