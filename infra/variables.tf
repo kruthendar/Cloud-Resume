@@ -22,3 +22,8 @@ variable "partition_value" {
   type    = string
   default = "visitors"
 }
+
+variable "bucket_name" {
+  type    = string
+  default = "cloud-resume-kruthendar"
+}
