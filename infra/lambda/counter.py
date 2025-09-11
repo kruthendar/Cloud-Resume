@@ -6,7 +6,7 @@ PARTITION_VALUE = os.environ.get("PARTITION_VALUE", "visitors")
 
 dynamodb = boto3.client("dynamodb")
 
-ALLOWED_ORIGIN = "http://cloud-resume-kruthendar.s3-website-us-east-1.amazonaws.com"
+ALLOWED_ORIGIN = "https://d61lbue2vh6ls.cloudfront.net/"
 
 def handler(event, context):
     # Atomically: visit_count = visit_count + 1
