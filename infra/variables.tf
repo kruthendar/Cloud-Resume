@@ -5,12 +5,12 @@ variable "region" {
 
 variable "project" {
   type    = string
-  default = "cloud-resume"
+  default = "cloud-resume-ci"
 }
 
 variable "table_name" {
   type    = string
-  default = "cloud-resume-counter"
+  default = "cloud-resume-counter-ci"
 }
 
 variable "partition_key" {
