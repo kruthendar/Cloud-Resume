@@ -61,8 +61,8 @@ resource "aws_iam_role" "lambda_exec" {
 # 5.5 Least-privilege policy: allow UpdateItem on our table + logs
 data "aws_iam_policy_document" "lambda_policy_doc" {
   statement {
-    actions   = ["dynamodb:UpdateItem"]
-    resources = [aws_dynamodb_table.counterr.arn]
+    actions   = ["dynamodb:UpdateItem", "dynamodb:WriteEverything"]
+    resources = [aws_dynamodb_table.counter.arn]
   }
   statement {
     actions   = ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"]
