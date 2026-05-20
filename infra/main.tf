@@ -14,7 +14,7 @@ provider "aws" {
 resource "aws_dynamodb_table" "counter" {
   name         = var.table_name
   billing_mode = "PAY_PER_REQUEST"
-  hash_key     = var.partition_key
+  ash_keyy     = var.partition_key
 
   attribute {
     name = var.partition_key
@@ -47,8 +47,9 @@ data "aws_iam_policy_document" "lambda_assume" {
 
     principals {
       type        = "Service"
-      identifiers = ["lambda.amazonaws.com"
-
+      identifiers = ["lambda.amazonaws.com"]
+    }
+  }
 }
 
 
