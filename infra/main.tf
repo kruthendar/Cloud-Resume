@@ -61,7 +61,7 @@ resource "aws_iam_role" "lambda_exec" {
 # 5.5 Least-privilege policy: allow UpdateItem on our table + logs
 data "aws_iam_policy_document" "lambda_policy_doc" {
   statement {
-    actions   = ["dynamodb:UpdateItem", "WriteEverything"]
+    actions   = ["dynamodb:UpdateItem"]
     resources = [aws_dynamodb_table.counter.arn]
   }
   statement {
@@ -134,4 +134,8 @@ resource "aws_lambda_permission" "allow_apigw" {
   function_name = aws_lambda_function.counter.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_apigatewayv2_api.httpapi.execution_arn}/*/*"
+}
+
+resource "aws_s3_bucket" "chaos_test" {
+  bucket = "test"
 }
