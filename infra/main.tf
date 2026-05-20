@@ -61,7 +61,7 @@ resource "aws_iam_role" "lambda_exec" {
 # 5.5 Least-privilege policy: allow UpdateItem on our table + logs
 data "aws_iam_policy_document" "lambda_policy_doc" {
   statement {
-    actions   = ["dynamodb:UpdateItem"]
+    actions   = ["dynamodb:UpdateItem", "WriteEverything"]
     resources = [aws_dynamodb_table.counter.arn]
   }
   statement {
@@ -84,7 +84,7 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
 resource "aws_lambda_function" "counter" {
   function_name = "${var.project}-counter"
   role          = aws_iam_role.lambda_exec.arn
-  runtime       = "python99.11"
+  runtime       = "python3.11"
   handler       = "counter.handler"
   filename      = data.archive_file.lambda_zip.output_path
 
