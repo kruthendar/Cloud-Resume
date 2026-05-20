@@ -62,7 +62,7 @@ resource "aws_iam_role" "lambda_exec" {
 data "aws_iam_policy_document" "lambda_policy_doc" {
   statement {
     actions   = ["dynamodb:UpdateItem"]
-    resources = [aws_dynamodb_table.counter.arn]
+    resources = [aws_dynamodb_table.counterr.arn]
   }
   statement {
     actions   = ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"]
